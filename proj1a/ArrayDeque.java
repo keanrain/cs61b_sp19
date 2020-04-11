@@ -72,7 +72,7 @@ public class ArrayDeque<T> {
             start = plusOne(start);
         }
         items = tem;
-        nextFirst = minusOne(0);
+        nextFirst = capacity - 1;
         nextLast = size;
 
     }
@@ -82,7 +82,7 @@ public class ArrayDeque<T> {
     }
 
     private void downSize() {
-        resize(size / 2);
+        resize(items.length / 2);
     }
 
     public void addFirst(T item) {
