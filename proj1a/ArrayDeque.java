@@ -46,7 +46,7 @@ public class ArrayDeque<T> {
 
     public void printDeque() {
         int start = plusOne(nextFirst);
-        for (int i = start; i < nextLast; i = plusOne(i)) {
+        for (int i = start; i != nextLast; i = plusOne(i)) {
             System.out.print(items[i] + " ");
         }
         System.out.println();
@@ -66,9 +66,10 @@ public class ArrayDeque<T> {
     private void resize(int capacity) {
         T[] tem = (T[]) new Object[capacity];
         int start = plusOne(nextFirst);
-        int j = 0;
-        for (int i = start; i < nextLast; i = plusOne(i)) {
-            tem[j++] = items[i];
+
+        for (int i = 0; i < size; i++) {
+            tem[i] = items[start];
+            start = plusOne(start);
         }
         items = tem;
         nextFirst = minusOne(0);
@@ -131,16 +132,14 @@ public class ArrayDeque<T> {
         }
         return res;
     }
-    // for 2018's grader
+    // for 2018's grader commit it.
 //    public ArrayDeque(ArrayDeque other) {
 //        items = (T[]) new Object[other.size];
 //        nextFirst = other.nextFirst;
 //        nextLast = other.nextLast;
 //        size = other.size;
 //        int start = plusOne(nextFirst);
-//        for (int i = start; i < nextLast; i = plusOne(i)) {
-//            addLast((T) other.get(i)); // (T) is cast, since type of other is unknown
-//        }
+//        System.arraycopy(other.items, 0, items, 0, other.size);
 //    }
 }
 
