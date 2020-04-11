@@ -1,3 +1,4 @@
+
 public class LinkedListDeque<T> {
     private class Node {
         private T item;
@@ -22,17 +23,17 @@ public class LinkedListDeque<T> {
     }
 
     /**
-     * Create a deep copy of other
+     * Create a deep copy of other, for 2018's grader
      */
-    public LinkedListDeque(LinkedListDeque other) {
-        sentinel = new Node(null, null, null);
-        sentinel.next = sentinel;
-        sentinel.prev = sentinel;
-        size = 0;
-        for (int i = 0; i < other.size(); i++) {
-            addLast((T) other.get(i)); // (T) is cast, since type of other is unknown
-        }
-    }
+//    public LinkedListDeque(LinkedListDeque other) {
+//        sentinel = new Node(null, null, null);
+//        sentinel.next = sentinel;
+//        sentinel.prev = sentinel;
+//        size = 0;
+//        for (int i = 0; i < other.size(); i++) {
+//            addLast((T) other.get(i)); // (T) is cast, since type of other is unknown
+//        }
+//    }
 
     public void addFirst(T item) {
         Node f = new Node(item, sentinel, sentinel.next);

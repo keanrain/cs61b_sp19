@@ -1,3 +1,4 @@
+
 public class ArrayDeque<T> {
     private int size;
     private T[] items;
@@ -130,15 +131,16 @@ public class ArrayDeque<T> {
         }
         return res;
     }
-
-    public ArrayDeque(ArrayDeque other) {
-        items = (T[]) new Object[other.size];
-        nextFirst = other.nextFirst;
-        nextLast = other.nextLast;
-        size = other.size;
-        int start = plusOne(nextFirst);
-        for (int i = start; i < nextLast; i = plusOne(i)) {
-            addLast((T) other.get(i)); // (T) is cast, since type of other is unknown
-        }
-    }
+    // for 2018's grader
+//    public ArrayDeque(ArrayDeque other) {
+//        items = (T[]) new Object[other.size];
+//        nextFirst = other.nextFirst;
+//        nextLast = other.nextLast;
+//        size = other.size;
+//        int start = plusOne(nextFirst);
+//        for (int i = start; i < nextLast; i = plusOne(i)) {
+//            addLast((T) other.get(i)); // (T) is cast, since type of other is unknown
+//        }
+//    }
 }
+
